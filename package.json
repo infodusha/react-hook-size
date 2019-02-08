@@ -1,0 +1,23 @@
+{
+  "name": "react-hook-size",
+  "version": "1.0.1",
+  "description": "React hook to handle DOM element size",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "use",
+    "hook"
+  ],
+  "author": "infodusha <infodusha@ya.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
