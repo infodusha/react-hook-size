@@ -6,7 +6,7 @@ module.exports.useSize = function useSize(ref) {
     
     let ro = useRef();
     let [inited, setInited] = useState(false);
-    let [size, setSize] = useState({ width: null, height: null });
+    let [size, setSize] = useState({ width: Infinity, height: Infinity });
     
     let init = () => setInited(true);
 
