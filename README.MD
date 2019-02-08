@@ -1,6 +1,6 @@
 ## Instalation
 
-`npm i react-hook-resize --save`
+`npm i react-hook-size --save`
 
 ## Usage
 
