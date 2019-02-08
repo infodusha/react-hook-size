@@ -2,6 +2,10 @@
 
 `npm i react-hook-size --save`
 
+## Why this hook is the best?
+* Rerenders after mount to get size
+* Uses ResizeObserver(or ponyfill)
+
 ## Usage
 
 ```javascript
