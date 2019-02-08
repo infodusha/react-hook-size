@@ -18,10 +18,16 @@ module.exports.useSize = function useSize(ref) {
         });
         window.setTimeout(init, 0);
         return () => ro.current.disconnect();
-    }, []);
+    }, [ref]);
 
     useEffect(() => {
-        ro.current.observe(ref.current);
+        if(ro.current && ref.current) {
+            try {
+                ro.current.observe(ref.current);
+            } catch (e) {
+                throw new TypeError('useSize ref: is not on DOM element');
+            }
+        }
     }, [inited]);
 
     return size;
