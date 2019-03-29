@@ -16,7 +16,7 @@ export default function Example() {
     
     let style = {
         width: '100%',
-        height: '100%';
+        height: '100%',
     };
     let ref = useRef();
     let { width, height } = useSize(ref);
