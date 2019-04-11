@@ -1,26 +1,31 @@
-const { useState, useEffect, useMemo } = require('react');
+const { useState, useEffect, useRef } = require('react');
 
 const RObserver = window.ResizeObserver || require('resize-observer-polyfill').default;
 
 module.exports.useSize = function useSize(ref) {
 
+    const obs = useRef();
     const [ignored, setIgnored] = useState(0);
-    const [size, setSize] = useState({ width: Infinity, height: Infinity });
+    const [size, setSize] = useState({ width: null, height: null });
 
     const forceUpdate = () => setIgnored((c) => c + 1);
 
-    const obs = useMemo(() => new RObserver((entries) => {
-        const { width, height } = entries[0].contentRect;
-        setSize((s) => s.width !== width || s.height !== height ? { width, height } : s);
-    }), []);
+    useEffect(() => {
+        function observe(entries) {
+            const { width, height } = entries[0].contentRect;
+            setSize((s) => s.width !== width || s.height !== height ? { width, height } : s);
+        }
+        obs.current = new RObserver(observe);
+        return () => obs.current.disconnect();
+    }, []);
 
     useEffect(() => {
         const item = ref.current;
-        if (item) {
-            obs.observe(item);
+        if(item) {
+            obs.current.observe(item);
             window.setTimeout(forceUpdate, 0);
         }
-        return () => item && obs.unobserve(item);
+        return () => item && obs.current.unobserve(item);
     }, [obs, ref]);
 
     return size;
