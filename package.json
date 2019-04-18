@@ -2,13 +2,14 @@
   "name": "react-hook-size",
   "version": "1.2.0",
   "description": "React hook to handle DOM element size",
-  "main": "index.js",
+  "main": "dist/index.js",
   "homepage": "https://github.com/infodusha/react-hook-size#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/infodusha/react-hook-size"
   },
   "scripts": {
+    "build": "babel src --out-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,5 +27,10 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3"
   }
 }
