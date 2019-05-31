@@ -2,9 +2,16 @@ import React from 'react';
 
 declare module 'react-hook-size' {
     interface size {
-        width: number | null;
-        height: number | null;
+        readonly width: number | null;
+        readonly height: number | null;
     }
-    function useSize<T = undefined>(ref: React.MutableRefObject<T | undefined>): size;
+    function useSize<T>(ref: React.MutableRefObject<T>): size;
+    /**
+     * `useSize` returns a size object with `.width` and `.height` properties.
+     * On first render their values are `null`.
+     *
+     * @version 16.8.0
+     * @see https://github.com/infodusha/react-hook-size#readme
+     */
     export = useSize;
 }
