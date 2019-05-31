@@ -1,6 +1,6 @@
 {
   "name": "react-hook-size",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "React hook to handle DOM element size",
   "main": "dist/index.js",
   "homepage": "https://github.com/infodusha/react-hook-size#readme",
